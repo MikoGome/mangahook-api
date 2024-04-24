@@ -6,10 +6,9 @@ const mangaListRouter = require("./routes/mangaListRouter")
 const mangaSearch = require("./routes/mangaSearch")
 
 app.use(bodyParser.json())
-app.options((req, res, next) => {
-  // Allow any domain to access your server
+app.use((req, res, next) => {
   res.setHeader('Access-Control-Allow-Origin', '*');
-  res.send(200);
+  next();
 })
 
 require('dotenv').config()
