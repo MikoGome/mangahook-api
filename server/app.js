@@ -4,14 +4,10 @@ const bodyParser = require("body-parser")
 const mangaRouter = require("./routes/mangaRouter")
 const mangaListRouter = require("./routes/mangaListRouter")
 const mangaSearch = require("./routes/mangaSearch")
+const cors = require('cors');
 
 app.use(bodyParser.json())
-app.use((req, res, next) => {
-  res.setHeader('Access-Allow-Control-Origin', '*');
-  res.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.setHeader('Access-Control-Allow-Methods', 'OPTIONS, GET');
-  return next();
-});
+app.use(cors())
 require('dotenv').config()
 
 app.use(ApiKey)
