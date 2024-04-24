@@ -9,7 +9,7 @@ app.use(bodyParser.json())
 app.options((req, res, next) => {
   // Allow any domain to access your server
   res.setHeader('Access-Control-Allow-Origin', '*');
-  next();
+  res.send(200);
 })
 
 require('dotenv').config()
