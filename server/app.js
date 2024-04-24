@@ -6,6 +6,9 @@ const mangaListRouter = require("./routes/mangaListRouter")
 const mangaSearch = require("./routes/mangaSearch")
 
 app.use(bodyParser.json())
+app.use((req, res) => {
+  res.setHeader('Access-Allow-Control-Origin', '*');
+});
 require('dotenv').config()
 
 app.use(ApiKey)
